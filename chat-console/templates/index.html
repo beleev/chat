@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BI-场景生成器</title>
+        <link href="static/style.css" rel="stylesheet" type="text/css" />
+        <link href="static/style2.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    <header>
+        <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">BI-场景生成器</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" onclick="">创建场景<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="createAndDownloadFile()">导出场景</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="">载入场景</a>
+                    </li>
+                    <li class="nav-item">
+                        <input type="file" multiple onchange="loadFile(this.files)"/>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        </div>
+    </header>
+    <main role="main" class='container'>
+        <div class="mt-6 mt-md-0">
+            <label>1. 创建机器人：</label>
+            <button type="submit" class="btn btn-primary my-2 my-sm-1" onclick="adduser()">插入</button>
+            <button type="submit" class="btn btn-danger my-2 my-sm-1" onclick="deluser()">删除</button>
+        </div>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">名称</th>
+            </tr>
+          </thead>
+          <tbody id="user">
+          </tbody>
+        </table>
+        <div class="mt-6 mt-md-0">
+            <label>2. 创建聊天群组：</label>
+            <button type="submit" class="btn btn-primary my-2 my-sm-1" onclick="addgroup()">插入</button>
+            <button type="submit" class="btn btn-danger my-2 my-sm-1" onclick="delgroup()">删除</button>
+        </div>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">组名</th>
+                <th scope="col">成员</th>
+            </tr>
+            </thead>
+            <tbody id="group">
+            </tbody>
+        </table>
+        <div class="mt-6 mt-md-0">
+            <label>3. 创建发送消息：</label>
+            <button type="submit" class="btn btn-primary my-2 my-sm-1" onclick="addmessage()">插入</button>
+            <button type="submit" class="btn btn-danger my-2 my-sm-1" onclick="delmsg()">删除</button>
+        </div>
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">From:</th>
+                <th scope="col">To:</th>
+                <th scope="col">Time:</th>
+                <th scope="col">Message:</th>
+            </tr>
+            </thead>
+            <tbody id="message">
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary my-2 my-sm-1" onclick="init()">初始化</button>
+        <button type="submit" class="btn btn-primary my-2 my-sm-1" onclick="start()">开始</button>
+        <button type="submit" class="btn btn-danger my-2 my-sm-1" onclick="stop()">停止</button>
+        <p id="chatmsg" class="my-2 my-sm-1">等待初始化</p>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">CopyRight@BI    版本0.1Alpha</span>
+        </div>
+    </footer>
+    <script type="text/javascript" src='static/sm.js'></script>
+    <script type="text/javascript" src="static/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="static/popper.min.js"></script>
+    <script type="text/javascript" src="static/bootstrap.min.js"></script>
+    </body>
+</html>
